@@ -1,5 +1,3 @@
-import type { Config } from "tailwindcss";
-
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,10 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        secondary: "#010101",
+        primary: "#b6895b",
       },
+      fontFamily: {
+        Poppins : ["Poppins", "serif"]
+      },
+      container: {
+        center: true
+      }
     },
   },
   plugins: [],
-} satisfies Config;
+} 
