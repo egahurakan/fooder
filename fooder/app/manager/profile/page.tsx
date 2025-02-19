@@ -11,6 +11,12 @@ import about2 from "@/public/image/about-2.jpg"
 import { ShoppingCart, Eye, Phone, Mail, User } from "lucide-react";
 import { useState } from "react";
 
+import img from "@/public/image/products/1.png"
+import img2 from "@/public/image/products/2.png"
+import img3 from "@/public/image/products/3.png"
+import img4 from "@/public/image/products/4.png"
+import img5 from "@/public/image/products/5.png"
+import img6 from "@/public/image/products/6.png"
 
 const products = [
     {
@@ -18,35 +24,35 @@ const products = [
         name: "Robusta Brazil",
         price: 20000,
         rating: 5,
-        image: "/image/menu/1.png",
+        image: img,
     },
     {
         id: 2,
         name: "Arabica Blend",
         price: 25000,
         rating: 5,
-        image: "/image/menu/2.png",
+        image: img2,
     },
     {
         id: 3,
         name: "Primo Passo",
         price: 30000,
         rating: 5,
-        image: "/image/menu/3.png",
+        image: img3,
     },
     {
         id: 4,
         name: "Aceh Gayo",
         price: 35000,
         rating: 5,
-        image: "/image/menu/4.png",
+        image: img4,
     },
     {
         id: 5,
         name: "Sumatra Mandheling",
         price: 40000,
         rating: 5,
-        image: "/image/menu/5.png",
+        image: img5,
     },
 ];
 
@@ -58,16 +64,16 @@ const DashboardPage = () => {
         noHp: "",
     });
 
-    
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-};
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form Data:", formData);
-};
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("Form Data:", formData);
+    };
 
     return (
         <div className="min-h-dvh bg-secondary">
@@ -170,6 +176,28 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+
+                <div className="bg-black text-white py-24">
+                    <div className="text-center mb-6">
+                        <h2 className="text-3xl font-bold text-primary">Produk Unggulan <span className="text-white">Kami</span></h2>
+                        <p className="text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-10">
+                        {products.map((product, index) => (
+                            <div key={index} className="border border-gray-700 p-4 rounded-lg relative hover:shadow-lg transition">
+                                <Image src={product.image} alt={product.name} className="w-full h-40 object-cover rounded-md" />
+                                <h3 className="text-lg font-bold mt-3">{product.name}</h3>
+                                <div className="flex items-center mt-2">
+                                    {Array.from({ length: product.rating }, (_, i) => (
+                                        <span key={i}>★</span>
+                                    ))}
+                                </div>
+                                <p className="text-amber-400 font-semibold mt-2">{product.price}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
